@@ -1,0 +1,35 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: user-service
+  cloud:
+    consul:
+      host: 127.0.0.1
+      port: 8500
+  datasource:
+    url: jdbc:mysql://localhost:3306/micro_db?createDatabaseIfNotExist=true
+    username: root
+    password: Dd@22116
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        show_sql: false
+        id:
+          new_generator_mappings: false
+          
+management:
+  security:
+    enabled: false
+
+com:
+  dpmicro:
+    client:
+      consul:
+       service:
+        name: authentication-service
